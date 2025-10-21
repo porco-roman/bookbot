@@ -1,6 +1,11 @@
 import sys 
 from stats import *
-book_path = "books/frankenstein.txt"
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+book_path = sys.argv[1]
 
 def get_book_text(book_path): 
     with open(book_path, mode="r", encoding="utf-8") as f:
@@ -13,7 +18,7 @@ def main():
     sorted_dict = sorted_list(count)
 
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {book_path} ...")
     print( "----------- Word Count ----------")
     print(message)
     print("--------- Character Count -------")
